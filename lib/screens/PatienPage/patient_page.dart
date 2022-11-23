@@ -71,7 +71,7 @@ class _PatientPageState extends State<PatientPage> {
               children: [
                 CardB(
                   icon: const Icon(Icons.report, size: 30, color: Colors.white),
-                  title: 'Request ambulance ',
+                  title: 'Request Ambulance ',
                   nav: NewReport(),
                 ),
                 const CardB(

@@ -19,7 +19,7 @@ import 'package:geocoding/geocoding.dart';
 
 class ReportController extends GetxController {
   final GlobalKey<FormState> formKey2 = GlobalKey<FormState>();
-  late TextEditingController status, name, hosName;
+  late TextEditingController status, name, hosName, other;
   late LatLng mapLocation;
   late int number;
   int ch = 0;
@@ -50,6 +50,7 @@ class ReportController extends GetxController {
     status = TextEditingController();
     name = TextEditingController();
     hosName = TextEditingController();
+    other = TextEditingController();
     // getUserNumber(user!.uid);
     collectionReference = firebaseFirestore.collection("reports");
     hospitalsCollectionReference = firebaseFirestore.collection("hospitals");
@@ -162,7 +163,7 @@ class ReportController extends GetxController {
     re = <String, dynamic>{
       "uid": uid,
       "name": name,
-      "status": status.text,
+      "status": status.text == 'Other' ? other.text : status.text,
       "number": num.value,
       "approve": "waiting",
       "by": "",

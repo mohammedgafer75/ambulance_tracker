@@ -113,6 +113,20 @@ class NewReport extends StatelessWidget {
                             ],
                           ),
                         ),
+                        controller.status.text == 'Other'
+                            ? Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CustomTextField(
+                                    controller: controller.other,
+                                    validator: (val) {
+                                      return controller.validateName(val!);
+                                    },
+                                    lable: 'status',
+                                    icon: const Icon(Icons.local_hospital),
+                                    input: TextInputType.text,
+                                    bol: false),
+                              )
+                            : const SizedBox(),
 
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -158,7 +172,7 @@ class NewReport extends StatelessWidget {
                           child: Row(
                             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text('Number of Patients: ',
+                              const Text('Number of injured: ',
                                   style: TextStyle(color: Colors.black)),
                               const Spacer(),
                               IconButton(
